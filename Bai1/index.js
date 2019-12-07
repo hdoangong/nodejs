@@ -3,6 +3,9 @@ var app=express();
 var port=3000;
 app.get('/',function(request,response){
     response.send("<h1>hello nodejs</h1>");
+});
+app.get('/users',function(request,response){
+    response.send("<h1>user</h1>");
 
 });
 app.listen(port,function(){
