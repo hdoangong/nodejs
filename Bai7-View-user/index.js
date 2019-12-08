@@ -31,10 +31,9 @@ app.get('/users',function(req,res){
 });
 app.get('/users/search', function(req,res){
     var q=req.query.q;
-    var matchedUsers=db.get('users').value();
-    matchedUsers = matchedUsers.filter(function(user){
+    var matchedUsers=db.get('users').value().filter(function(user){
         return user.name.toLowerCase().indexOf(q.toLowerCase())!==-1;// nếu k có trong danh sách thì trả về -1    
-    })
+    });
     // var matchedUsers=users.filter(function(user){
     //     return user.name.toLowerCase().indexOf(q.toLowerCase())!==-1;// nếu k có trong danh sách thì trả về -1    
     // });
@@ -52,6 +51,16 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/users/create',function(req,res){
     res.render('./users/create');
+});
+
+app.get('/users/:id',function(req,res){
+    var id=parseInt( req.params.id);
+    var user =db.get('users').find({id: id}).value();
+    console.log(user.name);
+    res.render('users/view',{
+        users:user
+        
+    })
 });
 
 app.post('/users/create',function(req,res){
