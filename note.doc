@@ -8,8 +8,21 @@ Bài 2:
         npm install pug --save
                 app.set('view engine','pug');
                 app.set('views','./views');
-Bài 4: 
+Bài 4: POST
         npm install body-parser --save
                 var bodyParser=require('body-parser');
                 app.use(bodyParser.json());
                 app.use(bodyParser.urlencoded({extended: true}));
+Bài 5: NODEMON
+        npm install --save-dev nodemon
+                "start":"nodemon index.js"// thêm vào file package.json scripts
+Bài 6: tích hợp database(lowdb)
+        npm install lowdb --save
+                var low =require('lowdb');
+                var FileSync=require('lowdb/adapters/FileSync');
+                var adapter=new FileSync('db.json');
+                db=low(adapter);
+                //set mặc định cho trường hợp file rỗng
+                db.defaults({kiểu dữ liệu})
+                  .write();
+                //tránh trường hợp khởi động đi khởi động lại: tạo file nodemon.json {"ignore":["db.json"]}
