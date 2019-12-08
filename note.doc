@@ -1,2 +1,7 @@
+
+Bài 1:
 npm init
 npm install express --save
+Bài 2:
+npm install pug --save
+        app.set('view engine','pug');
