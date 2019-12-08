@@ -26,3 +26,6 @@ Bài 6: tích hợp database(lowdb)
                 db.defaults({kiểu dữ liệu})
                   .write();
                 //tránh trường hợp khởi động đi khởi động lại: tạo file nodemon.json {"ignore":["db.json"]}
+Bài 7: view user
+        npm install shortid --save // tự động tạo id không trùng trong lowdb
+        
