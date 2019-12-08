@@ -32,12 +32,6 @@ router.get('/:id',function(req,res){
         users:user
     })
 });
-router.get('/view',function(req,res){
-    //res.render('./users/view');
-    db.get('users').push(req.body).write();//users.push(req.body);
-    res.redirect('/users');// chuyển về trang 
-});
-
 router.post('/create',function(req,res){
     req.body.id=shorid.generate();
     db.get('users').push(req.body).write();//users.push(req.body);
